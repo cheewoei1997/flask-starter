@@ -1,0 +1,7 @@
+<h1>All users:</h1>
+
+{% for user in context.all_users %}
+  <h1><a href="/user/{{user.name}}">{{ user.name }}</a></h1>
+  <h2> {{ user.email }}</h2>
+  <hr />
+{% endfor %}

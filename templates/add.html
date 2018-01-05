@@ -1,0 +1,34 @@
+<h1 id='demo'>Hello</h1>
+<h2>World</h2>
+{% if context.answer < 10 %}
+
+<h3>{{ context.answer }}</h3>
+{% endif %}
+<h3>{{ context.num1 }}</h3>
+<h3>{{ context.num2 }}</h3>
+
+<ul>
+  {% for r in context.random %}
+  <li>
+    {{ r }}
+  </li>
+  {% endfor %}
+
+</ul>
+
+<button onclick="myFunction()"> Change title</button>
+
+<style>
+  h1{
+    color: red;
+  }
+</style>
+
+<script>
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Changed Hello"
+  console.log("MyFunction ran");
+}
+
+</script>

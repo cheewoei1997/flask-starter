@@ -1,0 +1,7 @@
+{% if context.new_post %}
+<h1>New Post created!</h1>
+<h3>{{ context.new_post.post}}</h3>
+<h3>{{ context.new_post.user_id}}</h3>
+{% else %}
+<h1>Something went wrong</h1>
+{% endif %}

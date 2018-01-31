@@ -1,6 +1,7 @@
 {% if context.new_user %}
 <h1>New User created!</h1>
-<h3>{{ context.new_user.name}}</h3>
+<h3>{{ context.new_user.name }}</h3>
+<h3>{{ context.new_user.id }}</h3>
 {% else %}
 <h1>Something went wrong</h1>
 {% endif %}

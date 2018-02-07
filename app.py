@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, redirect
+from flask import Flask, render_template, flash, redirect, request
 from flask_wtf import FlaskForm
 from database import db_session
 from models import User, Post
@@ -21,6 +21,23 @@ def get_all_users():
     }
     return render_template('all_users.html', context = context)
 
+@app.route('/form', methods = ['POST', 'GET'])
+def form():
+    print(request.method)
+    if request.method == 'POST':
+        result = request.form
+        print(result)
+    #print(request.form)
+    return render_template('form.html')
+
+@app.route('/formresult', methods = ['POST', 'GET'])
+def formresult():
+    if request.method == 'POST':
+        result = request.form  
+        context = {
+
+        }
+        return render_template('formresult.html', context = context)
 
 @app.route('/user/<name>')
 def show_user(name):
@@ -77,4 +94,4 @@ def shutdown_session(exception=None):
     db_session.remove()
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

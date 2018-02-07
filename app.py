@@ -23,19 +23,22 @@ def get_all_users():
 
 @app.route('/form', methods = ['POST', 'GET'])
 def form():
+    return render_template('form.html')
+
+    
+    #print(request.form)
+    #return render_template('form.html', context = context)
+
+@app.route('/formresult', methods = ['POST', 'GET'])
+def formresult():
     print(request.method)
     if request.method == 'POST':
         result = request.form
         print(result)
-    #print(request.form)
-    return render_template('form.html')
-
-@app.route('/formresult', methods = ['POST', 'GET'])
-def formresult():
-    if request.method == 'POST':
-        result = request.form  
+        db_session.add(result)
+        db_session.commit()
         context = {
-
+            'result' : result,
         }
         return render_template('formresult.html', context = context)
 

@@ -69,8 +69,26 @@ class Comment(Base):
     def __repr__(self):
         return "Post updated!"
 
+class LoginTwo(Base):
+    __tablename__ = "logintwo"
+    id = Column(Integer, primary_key=True)
+    Name = Column(String(120), unique=False)
+    Email = Column(String(120), unique=False)
+
+    def change_details(self, Name, Email):
+        self.Name = Name
+        self.Email = Email
+
+    def __init__(self, Name=None, Email=None):
+        self.Name = Name
+        self.Email = Email
+
+    def __repr__(self):
+        return "Login"
+
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
+
